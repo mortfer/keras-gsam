@@ -15,6 +15,8 @@
 # ResNet20, 56, 110, 164, 1001 version 1 for CIFAR-10
 # Paper: https://arxiv.org/pdf/1512.03385.pdf
 
+# Reference 
+# https://github.com/GoogleCloudPlatform/keras-idiomatic-programmer/blob/master/zoo/resnet/resnet_cifar10.py
 import tensorflow as tf
 from tensorflow.keras import Model, Input
 from tensorflow.keras.layers import Conv2D, BatchNormalization, ReLU, Add, Dense
@@ -151,21 +153,25 @@ def classifier(x, n_classes):
 # ResNet164  | 18  |
 # ResNet1001 | 111 |
 #
-n = 18
-depth =  n * 9 + 2
-n_blocks = ((depth - 2) // 9) - 1
+def get_resnet20():
+    # ResNet20
+    n = 2
+    depth =  n * 9 + 2
+    n_blocks = ((depth - 2) // 9) - 1
 
-# The input tensor
-inputs = Input(shape=(32, 32, 3))
+    # The input tensor
+    inputs = tf.keras.layers.Input(shape=(32, 32, 3))
 
-# The Stem Convolution Group
-x = stem(inputs)
-   
-# The learner
-x = learner(x, n_blocks)
+    # The Stem Convolution Group
+    x = stem(inputs)
 
-# The Classifier for 10 classes
-outputs = classifier(x, 10)
+    # The learner
+    x = learner(x, n_blocks)
 
-# Instantiate the Model
-model = Model(inputs, outputs)
+    # The Classifier for 10 classes
+    outputs = classifier(x, 10)
+
+    # Instantiate the Model
+    model = tf.keras.Model(inputs, outputs)
+    
+    return model
