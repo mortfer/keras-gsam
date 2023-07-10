@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
     long_description = f.read()
     
 setup(
-    name='keras-gsam',
+    name='keras_gsam',
     version=gsam.__version__,
     description='',
     long_description=long_description,
