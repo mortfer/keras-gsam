@@ -1,7 +1,7 @@
 import copy
 import tensorflow as tf
-from keras.layers import deserialize as deserialize_layer
-from keras.saving.legacy.serialization import serialize_keras_object
+from tensorflow.keras.layers import deserialize as deserialize_layer
+from tensorflow.keras.saving import serialize_keras_object
 
 class GSAM(tf.keras.Model):
     def __init__(self, model, rho=0.05, alpha=0.1, eps=1e-12, name=None):

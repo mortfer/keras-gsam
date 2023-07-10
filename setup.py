@@ -1,13 +1,12 @@
 from setuptools import find_packages
 from setuptools import setup
-import gsam
 
 with open("README.md", "r") as f:
     long_description = f.read()
     
 setup(
-    name='keras_gsam',
-    version=gsam.__version__,
+    name='keras-gsam',
+    version='1.0.0',
     description='',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -16,7 +15,9 @@ setup(
     url='https://github.com/mortfer/keras-gsam',
     license='MIT',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        'tensorflow>=2.10'
+    ],
     python_requires='>=3',
     keywords='tensorflow keras optimization gsam loss landscape',
 )
