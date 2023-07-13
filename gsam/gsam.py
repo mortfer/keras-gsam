@@ -1,7 +1,4 @@
-import copy
 import tensorflow as tf
-from keras.layers import deserialize as deserialize_layer
-from keras.saving import serialize_keras_object
 
 class GSAM(tf.keras.Model):
     """Surrogate Gap Guided Sharpness-Aware Minimization
@@ -73,27 +70,7 @@ class GSAM(tf.keras.Model):
           A Tensor, the outputs of the wrapped model for given `inputs`.
         """
         return self.model(inputs)
-    
-    def get_config(self):
-        config = super().get_config()
-        config.update(
-            {
-                "model": serialize_keras_object(self.model),
-                "rho": self.rho,
-            }
-        )
-        return config
-
-    @classmethod
-    def from_config(cls, config, custom_objects=None):
-        # Avoid mutating the input dict.
-        config = copy.deepcopy(config)
-        model = deserialize_layer(
-            config.pop("model"), custom_objects=custom_objects
-        )
-        config["model"] = model
-        return super().from_config(config, custom_objects)
-    
+       
     def _distributed_apply_epsilon_w(self, var, epsilon_w, strategy):
         # Helper function to apply epsilon_w on model variables.
         if isinstance(
