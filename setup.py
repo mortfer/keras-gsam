@@ -17,7 +17,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         'tensorflow>=2.10',
-        'keras'
     ],
     python_requires='>=3',
     keywords='tensorflow keras optimization gsam loss landscape',
