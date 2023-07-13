@@ -11,12 +11,13 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Marc Blanco',
-    author_email='marcblanco03@gmail.com',
+    author_email='marcblanco10@hotmail.com',
     url='https://github.com/mortfer/keras-gsam',
     license='MIT',
     packages=find_packages(),
     install_requires=[
-        'tensorflow>=2.10'
+        'tensorflow>=2.10',
+        'keras'
     ],
     python_requires='>=3',
     keywords='tensorflow keras optimization gsam loss landscape',

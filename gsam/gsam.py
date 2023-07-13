@@ -1,14 +1,13 @@
 import copy
 import tensorflow as tf
-from tensorflow.keras.layers import deserialize as deserialize_layer
-from tensorflow.keras.saving import serialize_keras_object
+from keras.layers import deserialize as deserialize_layer
+from keras.saving import serialize_keras_object
 
 class GSAM(tf.keras.Model):
+    """Surrogate Gap Guided Sharpness-Aware Minimization
+    (GSAM) training flow. https://arxiv.org/abs/2203.08065
+    """
     def __init__(self, model, rho=0.05, alpha=0.1, eps=1e-12, name=None):
-        """
-        p, q = 2 for optimal results as suggested in the paper
-        (Section 2)
-        """
         super().__init__(name=name)
         self.model = model
         self.rho = rho

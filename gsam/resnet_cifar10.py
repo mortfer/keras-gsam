@@ -19,8 +19,7 @@
 # https://github.com/GoogleCloudPlatform/keras-idiomatic-programmer/blob/master/zoo/resnet/resnet_cifar10.py
 import tensorflow as tf
 from tensorflow.keras import Model, Input
-from tensorflow.keras.layers import Conv2D, BatchNormalization, ReLU, Add, Dense
-from tensorflow.keras.layers import AveragePooling2D, Flatten
+from tensorflow.keras.layers import Conv2D, BatchNormalization, ReLU, Add, Dense, AveragePooling2D, Flatten
 
 def stem(inputs):
     ''' Construct the Stem Convolutional Group 
@@ -153,9 +152,7 @@ def classifier(x, n_classes):
 # ResNet164  | 18  |
 # ResNet1001 | 111 |
 #
-def get_resnet20():
-    # ResNet20
-    n = 2
+def get_resnet(n=2):
     depth =  n * 9 + 2
     n_blocks = ((depth - 2) // 9) - 1
 
