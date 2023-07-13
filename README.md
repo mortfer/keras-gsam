@@ -33,7 +33,7 @@ gsam_model.fit(
 )
 ```
 ## Results
-An example of how to use gsam can be found in [gsam_comparison.ipynb](https://github.com/mortfer/keras-gsam/examples/gsam_comparison.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mortfer/examples/gsam_comparison.ipynb) <br> 
+An example of how to use gsam can be found in [gsam_comparison.ipynb](https://github.com/mortfer/blob/master/keras-gsam/examples/gsam_comparison.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mortfer/blob/master/examples/gsam_comparison.ipynb) <br> 
 Results obtained:
 |              |Val accuracy (%)|
 | -------------|:--------------:|
