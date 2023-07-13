@@ -4,7 +4,7 @@ for keras and tensorflow 2
 ## Introduction
 The proposed [Sharpness-Aware Minimization](https://arxiv.org/abs/2010.01412) (SAM) improves generalization by minimizing a perturbed loss defined as the maximum loss within a neighborhood in the parameter space. [Surrogate Gap Guided Sharpness-Aware Minimization](https://arxiv.org/pdf/2203.08065.pdf) (GSAM) is a novel improvement over SAM with negligible computation overhead. Conceptually, GSAM consists of two steps: 1) a gradient descent like SAM to minimize the perturbed loss, and 2) an ascent step in the orthogonal direction (after gradient decomposition) to minimize the surrogate gap and yet not affect the perturbed loss. Empirically, GSAM consistently improves generalization (e.g., +3.2% over SAM
 and +5.4% over AdamW on ImageNet top-1 accuracy for ViT-B/32). [Official implementation in JAX](https://github.com/google-research/big_vision/blob/main/big_vision/trainers/proj/gsam/gsam.py)
-<img src="https://github.com/mortfer/TFM/blob/master/gsam_algo.png" width="850"/>
+<img src="https://github.com/mortfer/keras-gsam/blob/master/gsam_algo.png" width="850"/>
 
 ## Installation
 `pip install git+https://github.com/mortfer/keras-gsam.git`
